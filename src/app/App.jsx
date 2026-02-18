@@ -6,6 +6,13 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import testUser1 from "../assets/features/testimonials/testuser1.jpg";
+import testUser2 from "../assets/features/testimonials/testuser2.jpg";
+import testUser3 from "../assets/features/testimonials/testuser3.jpg";
+import testUser4 from "../assets/features/testimonials/testuser4.jpg";
+import testUser5 from "../assets/features/testimonials/testuser5.avif";
+import testUser6 from "../assets/features/testimonials/testuser6.avif";
+import testUser7 from "../assets/features/testimonials/testuser7.webp";
 
 const Home = lazy(() => import("../features/marketing/pages/Home"));
 const Login = lazy(() => import("../features/auth/pages/Login"));
@@ -43,49 +50,49 @@ function App() {
         id: 1,
         name: "Sarah Mitchell",
         username: "@sarahcodes",
-        avatar: "/src/assets/features/testimonials/testuser1.jpg",
+        avatar: testUser1,
         text: "This resume builder helped me land my dream job at Google. The AI suggestions were spot on!",
       },
       {
         id: 2,
         name: "Marcus Chen",
         username: "@marcusdesigns",
-        avatar: "/src/assets/features/testimonials/testuser2.jpg",
+        avatar: testUser2,
         text: "I got 3 interview calls within a week of updating my resume. The ATS optimization really works!",
       },
       {
         id: 3,
         name: "Emily Rodriguez",
         username: "@emilyintech",
-        avatar: "/src/assets/features/testimonials/testuser3.jpg",
+        avatar: testUser3,
         text: "Best resume builder I've used. Clean templates and smart AI content suggestions saved me hours!",
       },
       {
         id: 4,
         name: "David Kim",
         username: "@davidwrites",
-        avatar: "/src/assets/features/testimonials/testuser4.jpg",
+        avatar: testUser4,
         text: "Switched careers easily with their role-specific templates. Highly recommend for career changers!",
       },
       {
         id: 5,
         name: "Priya Sharma",
         username: "@priyatalks",
-        avatar: "/src/assets/features/testimonials/testuser5.avif",
+        avatar: testUser5,
         text: "The real-time feedback feature helped me avoid common mistakes. Got hired within 2 weeks!",
       },
       {
         id: 6,
         name: "Alex Thompson",
         username: "@alexbuilds",
-        avatar: "/src/assets/features/testimonials/testuser6.avif",
+        avatar: testUser6,
         text: "Super easy to use and professional results. Finally have a resume I'm proud to send out!",
       },
       {
         id: 7,
         name: "Maya Patel",
         username: "@mayainspires",
-        avatar: "/src/assets/features/testimonials/testuser7.webp",
+        avatar: testUser7,
         text: "Game changer for my job search! The formatting is perfect and recruiters love it.",
       },
     ];

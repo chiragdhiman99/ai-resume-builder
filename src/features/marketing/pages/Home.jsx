@@ -5,6 +5,8 @@ import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { link } from "framer-motion/client";
 import { useSelector } from "react-redux";
+import user1Image from "../../../assets/features/user1.avif";
+import user2Image from "../../../assets/features/user2.webp";
 
 function Home({ reviews, setReviews }) {
   const [text] = useTypewriter({
@@ -256,7 +258,7 @@ function Home({ reviews, setReviews }) {
                 <motion.div className="absolute top-20 left-0 w-3/5 h-2/5   ">
                   <div className="relative h-full rounded-2xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500 border-4 border-white">
                     <img
-                      src="/src/assets/features/user1.avif"
+                      src={user1Image}
                       alt="Professional workspace"
                       className="w-full h-full object-cover "
                     />
@@ -266,7 +268,7 @@ function Home({ reviews, setReviews }) {
                 <motion.div className="absolute bottom-0 right-0 w-4/5 h-1/2 sm:w-3/4 sm:h-2/5 lg:w-3/5 lg:h-2/5 sm:bottom-0 sm:right-0 animate-slide-up-delay-2">
                   <div className="relative h-full rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 border-4 border-white">
                     <img
-                      src="/src/assets/features/user2.webp"
+                      src={user2Image}
                       alt="Resume building"
                       className="w-full h-full object-cover object-center"
                     />
