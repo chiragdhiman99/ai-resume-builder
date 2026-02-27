@@ -5,17 +5,23 @@ An AI-powered Resume Builder that generates professional and optimized resumes i
 ---
 
 ## 🌐 Live Demo
-🔗 (Add your deployed link here after deployment)
+🔗 https://ai-resume-builder-wine-seven.vercel.app/
 
 ---
 
 ## 📸 Screenshots
 
-![Home](./assets/home.png)
-![Resume Preview](./assets/preview.png)
+![Home Page](./image_folder/1.png)
+![features Page](./image_folder/2.png)
+![preview Page](./image_folder/3.png)
+![signin Page](./image_folder/4.png)
+![dashboard Page](./image_folder/5.png)
+![resume Page](./image_folder/6.png)
 
----
 
+
+
+![Resume Preview](./images/preview.png)
 ## ✨ Features
 
 - 🤖 AI Generated Professional Summary
