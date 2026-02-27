@@ -171,9 +171,8 @@ export default function Resumebuilder() {
     },
   });
 
-  const handleManualPrint = (event) => {
-    // Ignore synthetic/automatic triggers and very-early ghost clicks on mobile.
-    if (!event?.isTrusted) return;
+  const handleManualPrint = () => {
+    // Block only very-early ghost triggers on mobile after mount.
     if (Date.now() - mountedAtRef.current < 1200) return;
     handlePrint();
   };
