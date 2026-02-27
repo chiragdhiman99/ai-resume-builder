@@ -158,6 +158,7 @@ export default function Resumebuilder() {
   ];
 
   const printContentRef = useRef();
+  const mountedAtRef = useRef(Date.now());
   const drafttitle = localStorage.getItem("resumeDrafts")
     ? JSON.parse(localStorage.getItem("resumeDrafts"))
     : "";
@@ -169,6 +170,13 @@ export default function Resumebuilder() {
       console.log("Resume downloaded!");
     },
   });
+
+  const handleManualPrint = (event) => {
+    // Ignore synthetic/automatic triggers and very-early ghost clicks on mobile.
+    if (!event?.isTrusted) return;
+    if (Date.now() - mountedAtRef.current < 1200) return;
+    handlePrint();
+  };
 
   const navigate = useNavigate();
 
@@ -493,7 +501,7 @@ export default function Resumebuilder() {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               type="button"
-              onClick={handlePrint}
+              onClick={handleManualPrint}
               className="inline-flex cursor-pointer items-center gap-2 rounded-lg bg-linear-to-r from-cyan-600 to-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:shadow-md w-full sm:w-auto justify-center"
             >
               <svg
