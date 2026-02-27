@@ -163,16 +163,41 @@ export default function Resumebuilder() {
     ? JSON.parse(localStorage.getItem("resumeDrafts"))
     : "";
 
+  // ✅ FIX: Added pageStyle to ensure correct A4 rendering on mobile devices
   const handlePrint = useReactToPrint({
     contentRef: printContentRef,
     documentTitle: drafttitle.title,
+    pageStyle: `
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+      @media print {
+        html, body {
+          width: 210mm !important;
+          min-height: 297mm !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          color-adjust: exact !important;
+        }
+        #print-resume-wrapper {
+          width: 210mm !important;
+          transform: none !important;
+          overflow: visible !important;
+        }
+        * {
+          overflow: visible !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+      }
+    `,
     onAfterPrint: () => {
       console.log("Resume downloaded!");
     },
   });
 
   const handleManualPrint = () => {
-    // Block only very-early ghost triggers on mobile after mount.
     if (Date.now() - mountedAtRef.current < 1200) return;
     handlePrint();
   };
@@ -519,31 +544,49 @@ export default function Resumebuilder() {
               Download PDF
             </Motion.button>
           </div>
-          <div className="p-2 sm:p-4 overflow-x-auto" ref={printContentRef}>
-            {selectedTemplateLabel === "Classic" && (
-              <ClassicTemplate
-                data={resumeData}
-                accentColor={selectedAccentLabel}
-              />
-            )}
-            {selectedTemplateLabel === "MinimalImage" && (
-              <MinimalTemplate
-                data={resumeData}
-                accentColor={selectedAccentLabel}
-              />
-            )}
-            {selectedTemplateLabel === "Minimal Template" && (
-              <Minimaltemp
-                data={resumeData}
-                accentColor={selectedAccentLabel}
-              />
-            )}{" "}
-            {selectedTemplateLabel === "ModernTemplate" && (
-              <ModernTemplate
-                data={resumeData}
-                accentColor={selectedAccentLabel}
-              />
-            )}
+
+          {/* ✅ FIX: Removed overflow-x-auto from print wrapper. Added id for print targeting.
+              The inner scaling div is screen-only (hidden during print via @media print). */}
+          <div className="p-2 sm:p-4">
+            <div
+              ref={printContentRef}
+              id="print-resume-wrapper"
+              className="w-full"
+            >
+              {/* Screen-only scale wrapper so it fits the preview panel on small screens */}
+              <div
+                className="origin-top-left print:transform-none print:w-full"
+                style={{
+                  transform: "scale(var(--resume-scale, 1))",
+                  transformOrigin: "top left",
+                }}
+              >
+                {selectedTemplateLabel === "Classic" && (
+                  <ClassicTemplate
+                    data={resumeData}
+                    accentColor={selectedAccentLabel}
+                  />
+                )}
+                {selectedTemplateLabel === "MinimalImage" && (
+                  <MinimalTemplate
+                    data={resumeData}
+                    accentColor={selectedAccentLabel}
+                  />
+                )}
+                {selectedTemplateLabel === "Minimal Template" && (
+                  <Minimaltemp
+                    data={resumeData}
+                    accentColor={selectedAccentLabel}
+                  />
+                )}
+                {selectedTemplateLabel === "ModernTemplate" && (
+                  <ModernTemplate
+                    data={resumeData}
+                    accentColor={selectedAccentLabel}
+                  />
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>
