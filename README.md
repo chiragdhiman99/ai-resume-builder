@@ -11,7 +11,7 @@ An AI-powered Resume Builder that generates professional and optimized resumes i
 
 ## 📸 Screenshots
 
-![Home Page](./image_folder/1.png)
+![Home Page](./src/image_folder/1.png)
 ![features Page](./image_folder/2.png)
 ![preview Page](./image_folder/3.png)
 ![signin Page](./image_folder/4.png)
