@@ -11,6 +11,7 @@ An AI-powered Resume Builder that generates professional and optimized resumes i
 
 ## 📸 Screenshots
 
+
 ![Home Page](./src/image_folder/1.png)
 ![features Page](./src/image_folder/2.png)
 ![preview Page](./src/image_folder/3.png)
@@ -20,8 +21,6 @@ An AI-powered Resume Builder that generates professional and optimized resumes i
 
 
 
-
-![Resume Preview](./src/images/preview.png)
 ## ✨ Features
 
 - 🤖 AI Generated Professional Summary
