@@ -32,6 +32,11 @@ function Reviews({ reviews, setReviews }) {
   });
 
   const handleaddreview = () => {
+
+    if(!feedback.avatar || !feedback.name || !feedback.username || !feedback.text) {
+      toast.error("Please fill all the fields");
+      return;
+    }
     if (!feedback.avatar) {
       toast.error("Please add your image");
       return;
