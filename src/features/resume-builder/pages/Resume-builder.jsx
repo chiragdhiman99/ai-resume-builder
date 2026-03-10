@@ -545,15 +545,14 @@ export default function Resumebuilder() {
             </Motion.button>
           </div>
 
-          {/* ✅ FIX: Removed overflow-x-auto from print wrapper. Added id for print targeting.
-              The inner scaling div is screen-only (hidden during print via @media print). */}
+        
           <div className="p-2 sm:p-4">
             <div
               ref={printContentRef}
               id="print-resume-wrapper"
               className="w-full"
             >
-              {/* Screen-only scale wrapper so it fits the preview panel on small screens */}
+            
               <div
                 className="origin-top-left print:transform-none print:w-full"
                 style={{
